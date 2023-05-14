@@ -13,7 +13,7 @@ deno install -A https://deno.land/x/katar/Katar.ts
 ```
 
 then simply run `katar` in your terminal
-OR clone the repo and run the following command:
+OR clone the repo and run:
 
 ```bash
 git clone https://github.com/optionsx/KatarEmail.git
