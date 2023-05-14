@@ -23,25 +23,22 @@ refresh: while (true) {
   const chosen = prompt("Choose one of the options[1,2,3,4,5,6,7]: ");
   if (chosen && chosen.match(/^(1|2|3|)$/)) { // # one of the emails [1,2,3]
     const email = [custom, gmailplus, dotgmail][parseInt(chosen) - 1];
-    await mainApi(email);
-    break;
+    await mainApi(email); break;
   }
   if (chosen === "4"/*prev*/) {
     const prev = prompt("Enter the email: ") as string;
     // # check if the email is valid
     if (!isValidEmail(prev)) {
       log(`%cprev <= Invalid email`, "color: red");
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      continue refresh;
+      // # wait 2s before refreshing
+      await new Promise((resolve) => setTimeout(resolve, 2000)); continue refresh;
     }
-    await mainApi(prev);
-    break;
+    await mainApi(prev); break;
   }
   if (chosen === "5"/*random*/) {
     const random = Math.floor(Math.random() * 3) + 1;
     const email = [custom, gmailplus, dotgmail][random - 1];
-    await mainApi(email);
-    break;
+    await mainApi(email); break;
   }
   if (chosen === "6"/*refresh*/) continue refresh;
   if (chosen === "7"/*exit*/) break;
