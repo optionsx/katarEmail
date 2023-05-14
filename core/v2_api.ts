@@ -8,7 +8,10 @@ const [_host, _generate_email, _inbox, _msgid] = [
   "/messageid?id=",
 ];
 /**
- * [1]CustomMail, [2]plusGmail, [3]dotGmail
+ * Generates an email address based on the provided email type.
+ *
+ * @param - The type of email to generate. [1]CustomMail, [2]plusGmail, [3]dotGmail
+ * @returns {Promise<string>} - generated email address
  */
 export const genEmail = async (emailType = 1): Promise<string> => {
   if (!emailType.toString().match(/^(1|2|3)$/)) {
@@ -23,7 +26,13 @@ export const genEmail = async (emailType = 1): Promise<string> => {
   const _email = await fetch(_host + _generate_email, options),
     { email } = await _email.json();
   return email;
-};
+};/**
+ * Retrieves the inbox for a given email address.
+ *
+ * @param {string} email - The email address to fetch the inbox for
+ * @param {number} [limit=10] - The maximum number of emails to fetch
+ * @returns {Promise<EmailInfo[]>} - A promise that resolves to an array of EmailInfo objects
+ */
 export const getInbox = async (
   email: string,
   limit = 10
@@ -36,7 +45,12 @@ export const getInbox = async (
   if (!response.ok) return [];
   return (await response.json()) as EmailInfo[];
 };
-
+/**
+ * Retrieves the content of an email by its ID.
+ *
+ * @param {string} id - The ID of the email to fetch the content for
+ * @returns {Promise<EmailContent>} - A promise that resolves to an EmailContent object
+ */
 export const getEmailContent = async (id: string): Promise<EmailContent> => {
   const response = await fetch(`${_host}${_msgid}${id}`, {
     headers: onlyHeader,
@@ -44,6 +58,13 @@ export const getEmailContent = async (id: string): Promise<EmailContent> => {
   const { content, ...rest } = await response.json();
   return { ...rest, content: content.replaceAll(/\r\n|\\/g, "") };
 };
+/**
+ * Main API function that fetches the inbox for a given email address and optionally keeps listening for new emails.
+ *
+ * @param {string} email - The email address to fetch the inbox for
+ * @param {boolean} [keepListen=false] - Whether to keep listening for new emails or not
+ * @returns {Promise<void>}
+ */
 export const mainApi = async (email: string, keepListen = false) => {
   let inbox = await getInbox(email);
   const amountOfEmail = inbox.length;
