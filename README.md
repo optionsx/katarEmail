@@ -13,7 +13,7 @@ OR clone the repo and run the following command:
 ```bash
 git clone https://github.com/optionsx/katarEmail.git
 cd KatarEmail
-deno install -A KatarEmail
+deno install -A https://raw.githubusercontent.com/optionsx/katarEmail/master/KatarEmail.ts
 ```
 ## Usage
 
