@@ -2,6 +2,11 @@
 
 Katar is a CLI tool for generating and managing email addresses using Deno.
 ![Demo](https://i.imgur.com/zFZM4I7.png)![Demo](https://i.imgur.com/q8VNcEF.gif)
+quick demo run:
+
+```bash
+deno run -A https://deno.land/x/katar/Katar.ts
+```
 
 ## Installation
 
