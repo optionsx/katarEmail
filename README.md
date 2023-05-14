@@ -1,7 +1,7 @@
 # KatarEmail
 
 KatarEmail is a CLI tool for generating and managing email addresses using Deno.
-
+[Demo](https://i.imgur.com/zFZM4I7.png)
 ## Installation
 
 To install KatarEmail, run the following command:
