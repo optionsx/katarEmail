@@ -1,6 +1,6 @@
-# KatarEmail
+# Katar
 
-KatarEmail is a CLI tool for generating and managing email addresses using Deno.
+Katar is a CLI tool for generating and managing email addresses using Deno.
 ![Demo](https://i.imgur.com/zFZM4I7.png)
 ![Demo](https://i.imgur.com/q8VNcEF.gif)
 
@@ -9,25 +9,25 @@ KatarEmail is a CLI tool for generating and managing email addresses using Deno.
 To install katar, run the following command:
 
 ```bash
-deno install -A -n katar https://deno.land/x/katar/KatarEmail.ts
+deno install -A https://deno.land/x/katar/Katar.ts
 ```
 
 then simply run `katar` in your terminal
 OR clone the repo and run the following command:
 
 ```bash
-git clone https://github.com/optionsx/katarEmail.git
+git clone https://github.com/optionsx/KatarEmail.git
 cd KatarEmail
-deno install -A -n katar katarEmail.ts
+deno install -A katar.ts
 ```
 
 ## Usage
 
-To use KatarEmail, run the following command:
+To use Katar, run the following command:
 
 ```bash
-KatarEmail
-KatarEmail - [Email]
+katar
+katar - [Email]
 ```
 
 Replace `EMAIL` with the email address you want to use.
