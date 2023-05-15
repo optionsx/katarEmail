@@ -74,7 +74,7 @@ export const mainApi = async (email: string, keepListen = false) => {
   // # wait for email to arrive
   while (amountOfEmail === inbox.length) {
     console.clear();
-    if (count-- === 0 && keepListen === false) log(`%cno email arrived within 2m30s listening, to keep listening run below command:\n%cdeno task start ${email} anythingHere`, "color: red", "color: blue"),
+    if (count-- === 0 && keepListen === false) log(`%cno email arrived within 2m30s listening, to keep listening run below command:\n%cdeno task start ${email} anythingHere`, "color: red", "color: white"),
       Deno.exit(1);
     log(email);
     log(`%clistening for email${'.'.repeat(dotCount++)} - ${time++ * 5}s elapsed`, "color: yellow");
